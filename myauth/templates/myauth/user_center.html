@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h5>个人中心测试</h5>
+    <a href="{% url 'myauth:主页' %}">返回主页</a>
+    <a href="{% url 'myauth:编辑信息' %}">信息编辑</a>
+    <a href="{% url 'myauth:修改密码' %}">修改密码</a>
+    <a href="{% url 'myauth:登出' %}">登出</a>
+    <hr>
+    <div>
+        {{ user.username }}<br>
+        {{ user.email }}<br>
+        {{ user.普通会员表.昵称 }}<br>
+        {{ user.普通会员表.生日 }}
+    </div>
+</body>
+</html>

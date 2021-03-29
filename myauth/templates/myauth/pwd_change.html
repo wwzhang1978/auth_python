@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+</head>
+<body>
+    <h5>密码修改测试</h5>
+    <a href="{% url 'myauth:主页' %}">返回主页</a>
+    <a href="{% url 'myauth:个人中心' %}">返回个人中心</a>
+    <a href="{% url 'myauth:编辑信息' %}">信息编辑</a>
+    <a href="{% url 'myauth:修改密码' %}">修改密码</a>
+    <a href="{% url 'myauth:登出' %}">登出</a>
+    <hr>
+    <form action="" method="post">
+        {% csrf_token %}
+{#        {{ edit_form.as_p }}#}
+        <p>
+            <label for="id_old_password">旧密码:</label>
+            <input type="password" name="old_password" autofocus required id="id_old_password" />
+        </p>
+        <p>
+            <label for="id_new_password1">新密码:</label>
+            <input type="password" name="new_password1" required id="id_new_password1" />
+            <span class="helptext">
+                <ul>
+                    <li>你的密码不能与其他个人信息太相似。</li>
+                    <li>你的密码必须包含至少 8 个字符。</li>
+                    <li>你的密码不能是大家都爱用的常见密码。</li>
+                    <li>你的密码不能全部为数字。</li>
+                </ul>
+            </span>
+        </p>
+        <p>
+            <label for="id_new_password2">新密码确认:</label>
+            <input type="password" name="new_password2" required id="id_new_password2" />
+        </p>
+        <hr>
+        {{ edit_form.errors }}
+        <hr>
+        <button type="submit">提交</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="用户名"></input>
+        <input type="password" name="password" placeholder="password"></input>
+        {{ login_form.验证码 }}
+        {{ login_form.errors }}
+        <button type="submit">提交</button>
+    </form>
+    <h5>{{ error }}</h5>
+    <a href="{% url 'myauth:主页' %}">主页</a>
+</body>
+</html>
